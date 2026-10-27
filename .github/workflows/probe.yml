@@ -1,0 +1,15 @@
+name: probe
+on: [push, workflow_dispatch]
+jobs:
+  r:
+    runs-on: windows-latest
+    steps:
+      - name: version
+        shell: pwsh
+        run: |
+          $PSVersionTable | Out-String
+      - name: windows powershell
+        shell: powershell
+        run: |
+          $PSVersionTable.PSVersion.ToString()
+          Write-Host "hello from windows"
